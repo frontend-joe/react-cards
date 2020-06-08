@@ -9,7 +9,7 @@ import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/ToggleDarkThemeCard";
+import FocalCard from "../cards/LongShadowCard.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -36,7 +36,7 @@ const StyledLeft = styled.div`
 
 const StyledRight = styled.div`
   flex: 2 0 auto;
-  transform: rotate(-1deg) translateX(-17px);
+  transform: rotate(-1deg) translateX(0px);
 `;
 
 const StyledHowToText = styled.div`
@@ -80,20 +80,20 @@ const StyledNextTimeLibary = styled.div`
 const StyledWaves = styled.div`
   position: absolute;
   z-index: 0;
-  bottom: -8px;
+  bottom: 2px;
   left: 0;
   width: 100%;
   height: 500px;
   background: url(${require("../../assets/images/first-slide-wave.png")});
   background-size: 200%;
-  background-position: right bottom;
+  background-position: left bottom;
   background-repeat: no-repeat;
 `;
 
 const LastSlide = props => (
   <FrameWrapper>
-    {true && <ImagePrev image={resultSlide} />}
-    <Frame background="#FAF9FE">
+    {false && <ImagePrev image={resultSlide} />}
+    <Frame background="#f7f7fd">
       <StyledWaves />
       <Top isLastSlide />
       <Middle verticalAlign="center">
@@ -105,8 +105,9 @@ const LastSlide = props => (
             <StyledLeft style={{ transform: "translateY(-10px)" }}>
               <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText>
-                Use Dark <br />
-                Theme on <br />a Card
+                Create <br />
+                Long <br /> Shadow <br />
+                Cards
               </StyledNextTimeText>
               <StyledNextTimeLibary>In React</StyledNextTimeLibary>
             </StyledLeft>

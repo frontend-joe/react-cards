@@ -8,10 +8,10 @@ import ImagePrev from "./shared/ImagePrev";
 import ImageNext from "./shared/ImageNext";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
-import lastCodeSlide from "../../assets/images/slide-last-code.png";
+import lastCodeSlide from "../../assets/images/slide-8.png";
 import slideLast from "../../assets/images/slide-last.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/3DHoverCard";
+import FocalCard from "../cards/RippleCard.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -41,13 +41,13 @@ const StyledWaves = styled.div`
 `;
 
 const StyledCardFrame = styled.div`
-  width: 325px;
+  width: auto;
 `;
 
 const LastSlide = props => (
   <FrameWrapper>
-    {true && <ImagePrev image={lastCodeSlide} />}
-    {true && <ImageNext image={slideLast} />}
+    {false && <ImagePrev image={lastCodeSlide} />}
+    {false && <ImageNext image={require("../../assets/images/slide-10.png")} />}
     <Frame background="#FAF9FE">
       <StyledWaves />
       <Top centerText="Result" />

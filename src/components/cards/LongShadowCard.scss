@@ -1,0 +1,65 @@
+$color: rgba(0, 0, 0, 0.1);
+
+@function makelongshadow($color) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 200 {
+    $val: #{$val}, #{$i}px #{$i}px #{$color};
+  }
+  @return $val;
+}
+
+.wrapper {
+  width: 330px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 130px;
+  height: 130px;
+  border-radius: 0.5rem;
+  margin: 0 1rem 1rem 0;
+  box-shadow: 2px 2px 50px darken(#e1e1e1, 0.5);
+
+  &.purple {
+    background: #8066a9;
+  }
+
+  &.purple .text {
+    text-shadow: makelongshadow(darken(#8066a9, 7));
+  }
+
+  &.pink {
+    background: #e981b2;
+  }
+
+  &.pink .text {
+    text-shadow: makelongshadow(darken(#e981b2, 6));
+  }
+
+  &.blue {
+    background: #75c5e4;
+  }
+
+  &.blue .text {
+    text-shadow: makelongshadow(darken(#75c5e4, 3.5));
+  }
+
+  &.red {
+    background: #dc685f;
+  }
+
+  &.red .text {
+    text-shadow: makelongshadow(darken(#dc685f, 3.5));
+  }
+}
+
+.text {
+  font-size: 4.25rem;
+  font-weight: 700;
+  color: rgba(white, 0.85);
+}

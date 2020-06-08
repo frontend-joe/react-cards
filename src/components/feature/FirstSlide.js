@@ -10,7 +10,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/3DHoverCard";
+import FocalCard from "../cards/RippleCard";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -24,7 +24,7 @@ const StyledMiddleContent = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 9px 28px 0;
+  padding: 19px 28px 0;
   font-family: "DM Sans";
   font-weight: 600;
 `;
@@ -33,7 +33,7 @@ const StyledHowToText = styled.div`
   font-size: 50px;
   font-weight: 600;
   margin-bottom: 0px;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: ${rgba("#10132F", 0.57)};
 `;
 
@@ -69,8 +69,8 @@ const StyledBannerText = styled.div`
 const StyledCardFrame = styled.div`
   position: absolute;
   z-index: 2;
-  right: 30px;
-  bottom: 115px;
+  right: 25px;
+  bottom: 96px;
   width: 325px;
   transform: rotate(-2deg);
 `;
@@ -90,7 +90,7 @@ const StyledWaves = styled.div`
 
 const FirstSlide = props => (
   <FrameWrapper>
-    {true && <ImageNext image={imageNext} />}
+    {false && <ImageNext image={imageNext} />}
     <Frame background="#FAF9FE">
       <StyledWaves />
       <Top />
@@ -99,7 +99,10 @@ const FirstSlide = props => (
         <StyledMiddleContent>
           <StyledHowToText>How To</StyledHowToText>
           <StyledTitleText>
-            Create a <br /> 3D Hover Card
+            Create
+            <br />
+            Soft Ripples
+            {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>
           <StyledSubtitleText>In React</StyledSubtitleText>

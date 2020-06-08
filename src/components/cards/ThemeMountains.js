@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { darken } from "polished";
+import styled, { css, ThemeProvider } from "styled-components";
+import { rgba, darken } from "polished";
+
+const transitionDuration = "0.35s";
 
 const Card = styled.div`
+  cursor: pointer;
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -10,7 +13,7 @@ const Card = styled.div`
   color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.025),
     0 9px 46px 8px rgba(0, 0, 0, 0.025), 0 11px 15px -7px rgba(0, 0, 0, 0.025);
-  margin-bottom: 2rem;
+  transition: background ${transitionDuration};
 `;
 
 const CardTitle = styled.div`
@@ -32,6 +35,7 @@ const Sky = styled.div`
   background: ${props => props.theme.colorSky};
   padding-bottom: 3rem;
   height: 260px;
+  transition: background ${transitionDuration};
 `;
 
 const Button = styled.button`
@@ -40,7 +44,7 @@ const Button = styled.button`
   border-radius: 20px;
   border: 0;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.35);
+  background: ${props => rgba(props.theme.colorMountain, 0.45)};
   color: white;
   width: 140px;
 `;
@@ -76,20 +80,40 @@ const MountainBackground = styled.div`
   width: ${props => props.mountainSize};
   height: ${props => props.mountainSize};
   background: ${props => props.theme.colorMountain};
+  transition: background ${transitionDuration};
 `;
 
-const MountainShadow = styled.div`
+const mountainGradient = (isDark, shadowColor, themeSetting) => css`
+  content: "";
   position: absolute;
-  background: ${props => props.theme.colorMountain}
+  height: 100%;
+  width: 100%;
+  background: ${shadowColor}
     linear-gradient(
       to bottom,
-      ${props => darken(0.05, props.theme.colorMountain)} 40%,
-      ${props => props.theme.colorMountain} 100%
+      ${darken(0.05, shadowColor)} 40%,
+      ${shadowColor} 100%
     );
+  opacity: ${themeSetting === "dark" ? (isDark ? 1 : 0) : isDark ? 0 : 1};
+  transition: opacity ${transitionDuration};
+`;
+
+const MountainShadow = styled("div")`
+  position: absolute;
   width: 100%;
   height: 100%;
   transform: rotate(-55deg) translate(41%);
   transform-origin: 0% 50%;
+
+  &::before {
+    ${props =>
+      mountainGradient(false, props.lightShadowColor, props.themeSetting)}
+  }
+
+  &::after {
+    ${props =>
+      mountainGradient(true, props.darkShadowColor, props.themeSetting)}
+  }
 `;
 
 const MountainBlocker = styled.div`
@@ -101,9 +125,10 @@ const MountainBlocker = styled.div`
   width: 100%;
   background: ${props => props.theme.colorGround};
   transform: rotate(-45deg) scale(24, 1.65) translateY(25%);
+  transition: background ${transitionDuration};
 `;
 
-const DrawMountains = props => {
+const ThemeMountains = props => {
   const [mountains] = useState([
     { mountainSize: "120px", zIndex: 1, shiftLeft: "0" },
     { mountainSize: "90px", zIndex: 0, shiftLeft: "-50px" }
@@ -112,9 +137,9 @@ const DrawMountains = props => {
   let [theme, setTheme] = useState("dark");
 
   const [darkTheme] = useState({
-    colorSky: "#1e1651",
-    colorGround: "#a29ebf",
-    colorMountain: "#7d799a"
+    colorSky: "#1a143c",
+    colorGround: "#e3e0fb",
+    colorMountain: "#cbcefe"
   });
 
   const [lightTheme] = useState({
@@ -125,17 +150,15 @@ const DrawMountains = props => {
 
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
-      <Card>
+      <Card
+        onClick={() =>
+          theme === "dark" ? setTheme("light") : setTheme("dark")
+        }
+      >
         <Sky>
           <CardTitle>CSS Mountains</CardTitle>
           <CardDescription>The Ultimate Tutorial</CardDescription>
-          <Button
-            onClick={() =>
-              theme === "dark" ? setTheme("light") : setTheme("dark")
-            }
-          >
-            {theme === "light" ? "Dark" : "Light"} Theme
-          </Button>
+          <Button>Get Started</Button>
         </Sky>
         <Footer>
           <FooterMountains>
@@ -147,7 +170,11 @@ const DrawMountains = props => {
               >
                 <MountainWrapper mountainSize={m.mountainSize}>
                   <MountainBackground mountainSize={m.mountainSize}>
-                    <MountainShadow />
+                    <MountainShadow
+                      themeSetting={theme}
+                      lightShadowColor={lightTheme.colorMountain}
+                      darkShadowColor={darkTheme.colorMountain}
+                    />
                   </MountainBackground>
                   <MountainBlocker />
                 </MountainWrapper>
@@ -160,4 +187,4 @@ const DrawMountains = props => {
   );
 };
 
-export default DrawMountains;
+export default ThemeMountains;
