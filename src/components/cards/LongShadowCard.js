@@ -4,16 +4,24 @@ import "./LongShadowCard.scss";
 const LongShadowCard = props => (
   <div className="wrapper">
     <div className="card purple">
-      <span className="text material-icons-outlined">play_circle_outline</span>
+      <div className="text-wrapper">
+        <i className="text icofont-facebook"></i>
+      </div>
     </div>
     <div className="card pink">
-      <span className="text material-icons-outlined">person</span>
+      <div className="text-wrapper">
+        <i className="text icofont-brand-whatsapp"></i>
+      </div>
     </div>
     <div className="card blue">
-      <span className="text material-icons-outlined">science</span>
+      <div className="text-wrapper">
+        <i className="text icofont-instagram"></i>
+      </div>
     </div>
     <div className="card red">
-      <span className="text material-icons-outlined">star_border</span>
+      <div className="text-wrapper">
+        <i className="text icofont-slack"></i>
+      </div>
     </div>
   </div>
 );

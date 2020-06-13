@@ -8,6 +8,8 @@ import LastSlide from "./components/feature/LastSlide";
 import Sidebar from "./components/layout/Sidebar";
 import Content from "./components/layout/Content";
 
+import "./assets/css/icofont.min.css";
+
 function App() {
   return (
     <Router>

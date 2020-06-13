@@ -29,14 +29,14 @@ const StyledLeft = styled.div`
   flex: 1 0 auto;
   position: relative;
   z-index: 1;
-  padding: 0 30px 0 20px;
+  padding: 0 60px 0 60px;
   font-family: "DM Sans";
   font-weight: 600;
 `;
 
 const StyledRight = styled.div`
-  flex: 2 0 auto;
-  transform: rotate(-1deg) translateX(0px);
+  flex: 1 0 auto;
+  transform: rotate(0deg) translateX(0px);
 `;
 
 const StyledHowToText = styled.div`
@@ -86,7 +86,7 @@ const StyledWaves = styled.div`
   height: 500px;
   background: url(${require("../../assets/images/first-slide-wave.png")});
   background-size: 200%;
-  background-position: left bottom;
+  background-position: right bottom;
   background-repeat: no-repeat;
 `;
 
