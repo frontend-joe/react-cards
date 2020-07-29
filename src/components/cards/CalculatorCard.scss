@@ -1,0 +1,51 @@
+.card {
+  background: #f1f1f9;
+  width: 250px;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+$background: linear-gradient(-45deg, #fff 0%, #f1f1f9 100%);
+
+.header {
+  text-align: right;
+  padding: 1.5rem 1rem;
+  background: #303030;
+  color: rgba(#fff, 0.75);
+
+  .output {
+    font-size: 2rem;
+    margin-bottom: 0.325rem;
+  }
+
+  .equation {
+    font-size: 0.875rem;
+  }
+}
+
+.content {
+  // background: $background;
+  padding: 1rem 1rem 0.5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  margin: 0.0325rem;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 700;
+  height: 48px;
+  width: 48px;
+  flex: 0 0 48px;
+  color: rgba(#090c22, 0.45);
+  background: #f1f1f9;
+  box-shadow: 4px 4px 8px rgba(#000, 0.075), -4px -4px 8px rgba(#fff, 0.5);
+}

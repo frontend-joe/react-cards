@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import frontendjoeImage from "../../../assets/images/frontendjoe.png";
+import frontendjoeGreyImage from "../../../assets/images/frontendjoe-grey.png";
 
 const BottomRow = styled.div`
   position: relative;
@@ -21,7 +22,7 @@ const FrontendJoe = styled.img`
 const SaveIcon = styled.i`
   position: relative;
   font-size: 38px;
-  color: #522cad;
+  color: ${props => (props.isDark ? "rgba(255, 255, 255, 0.75)" : "#522cad")};
 
   &::before {
     content: "";
@@ -31,14 +32,17 @@ const SaveIcon = styled.i`
     width: 90%;
     height: 90%;
     border-radius: 50%;
-    background: rgba(82, 44, 173, 0.1);
+    background: ${props =>
+      props.isDark ? "transparent" : "rgba(82, 44, 173, 0.1)"};
   }
 `;
 
 const Bottom = props => (
   <BottomRow>
-    <FrontendJoe src={frontendjoeImage} />
-    <SaveIcon className="material-icons-outlined">bookmark_outline</SaveIcon>
+    <FrontendJoe src={props.isDark ? frontendjoeGreyImage : frontendjoeImage} />
+    <SaveIcon isDark={props.isDark} className="material-icons-outlined">
+      bookmark_outline
+    </SaveIcon>
   </BottomRow>
 );
 

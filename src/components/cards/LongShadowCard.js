@@ -1,7 +1,8 @@
 import React from "react";
 import "./LongShadowCard.scss";
+import "../../assets/css/icofont.min.css";
 
-const LongShadowCard = props => (
+export default () => (
   <div className="wrapper">
     <div className="card purple">
       <div className="text-wrapper">
@@ -25,5 +26,3 @@ const LongShadowCard = props => (
     </div>
   </div>
 );
-
-export default LongShadowCard;

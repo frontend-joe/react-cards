@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { rgba, lighten } from "polished";
 import Bottom from "./shared/Bottom";
 import Frame from "./shared/Frame";
@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/AnimateHelicopter.js";
+import Godzilla from "./shared/Godzilla";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -37,7 +37,7 @@ const StyledHowToText = styled.div`
   line-height: 50px;
   margin-bottom: 14px;
   letter-spacing: -2px;
-  color: ${rgba("#fff", 0.57)};
+  color: ${rgba("#10132F", 0.57)};
 `;
 
 const StyledTitleText = styled.div`
@@ -46,15 +46,14 @@ const StyledTitleText = styled.div`
   letter-spacing: -2px;
   line-height: 92px;
   margin-bottom: 35px;
-  color: ${rgba("#fff", 0.85)};
+  color: ${rgba("#090C22", 0.85)};
 `;
 
 const StyledSubtitleText = styled.div`
   ${"" /* font-size: 38px; */}
   font-size: 50px;
   letter-spacing: -2px;
-  color: ${rgba("#fff", 0.5)};
-  ${"" /* color: #7a68a6; */}
+  color: ${rgba("#522cad", 0.75)};
   display: flex;
   align-items: center;
 `;
@@ -64,22 +63,13 @@ const StyledBannerText = styled.div`
   z-index: 0;
   top: 173px;
   left: -25px;
+  ${"" /* letter-spacing: -20px; */}
   letter-spacing: -10px;
   font-size: 180px;
   font-family: "DM Sans";
   font-weight: 600;
-  ${"" /* color: #f1f1fa; */};
-  color: ${rgba("white", 0.025)};
+  color: #f1f1fa;
   white-space: nowrap;
-`;
-
-const StyledCardFrame = styled.div`
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  ${"" /* width: 325px; */}
-  ${"" /* transform: rotate(-2deg); */}
 `;
 
 const StyledWaves = styled.div`
@@ -113,34 +103,67 @@ const StyledIconWrapper = styled.span`
   );
 `;
 
+const frameJudder = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(0);;
+  }
+  80% {
+    transform: translateY(-5px);;
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+const FrameInner = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  animation: ${frameJudder} 1s infinite;
+`;
+
+const GodzillaMountains = styled.img`
+  position: absolute;
+  width: 750px;
+  left: -77px;
+  bottom: -40px;
+`;
+
 const FirstSlide = props => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="linear-gradient(0deg, #a284ef 0%, #411aa7 100%)">
-      {false && <StyledWaves />}
-      <Top textColor="white" />
-      <Middle verticalAlign="flex-start">
-        <StyledBannerText>Helicopters</StyledBannerText>
-        <StyledMiddleContent>
-          <StyledHowToText>How To</StyledHowToText>
-          <StyledTitleText>
-            Animate <br />
-            Helicopters
-            {/* Theme a Mountain <br /> Card */}
-            {/* Use Dark Theme on a Card */}
-          </StyledTitleText>
-          <StyledSubtitleText>
-            <StyledIconWrapper>
-              <FontAwesomeIcon icon={faReact} />
-            </StyledIconWrapper>
-            <span>React</span>
-          </StyledSubtitleText>
-        </StyledMiddleContent>
-        <StyledCardFrame>
-          <FocalCard />
-        </StyledCardFrame>
-      </Middle>
-      <Bottom isDark textColor="white" />
+    <Frame background="#FAF9FE">
+      <FrameInner>
+        <GodzillaMountains src={require("../../assets/images/mountains.png")} />
+        <Godzilla />
+        <Top />
+        <Middle verticalAlign="flex-start">
+          <StyledBannerText>Godzilla</StyledBannerText>
+          <StyledMiddleContent>
+            <StyledHowToText>How To</StyledHowToText>
+            <StyledTitleText>
+              Animate
+              <br />
+              Godzilla
+              {/* Theme a Mountain <br /> Card */}
+              {/* Use Dark Theme on a Card */}
+            </StyledTitleText>
+            <StyledSubtitleText>
+              <StyledIconWrapper>
+                <FontAwesomeIcon icon={faReact} />
+              </StyledIconWrapper>
+              <span>React</span>
+            </StyledSubtitleText>
+          </StyledMiddleContent>
+        </Middle>
+        <Bottom />
+      </FrameInner>
     </Frame>
   </FrameWrapper>
 );

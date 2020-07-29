@@ -9,7 +9,7 @@ import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import lastCodeSlide from "../../assets/images/lastCodeSlide.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/PerspectiveCardProps";
+import FocalCard from "../cards/PricingCardExample";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -17,17 +17,6 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-const StyledRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const StyledCol = styled.div`
-  width: 33.33%;
-  padding: 1rem;
 `;
 
 const StyledWaves = styled.div`
@@ -50,32 +39,7 @@ const ExampleSlide = props => (
       <StyledWaves />
       <Top centerText="Example" />
       <Middle verticalAlign="center">
-        <StyledRow>
-          <StyledCol>
-            <FocalCard
-              cardTitle="Rocky Mountains"
-              cardSubtitle="Mount Elbert"
-              cardImage={require("../../assets/images/landscape4.jpg")}
-              cardImageSize="115%"
-            />
-          </StyledCol>
-          <StyledCol>
-            <FocalCard
-              cardTitle="Himalayas"
-              cardSubtitle="Mount Everest"
-              cardImage={require("../../assets/images/landscape3.webp")}
-              cardImageSize="230%"
-            />
-          </StyledCol>
-          <StyledCol>
-            <FocalCard
-              cardTitle="Alps"
-              cardSubtitle="Mont Blanc"
-              cardImage={require("../../assets/images/landscape2.png")}
-              cardImageSize="145%"
-            />
-          </StyledCol>
-        </StyledRow>
+        <FocalCard />
       </Middle>
       <Bottom />
     </Frame>

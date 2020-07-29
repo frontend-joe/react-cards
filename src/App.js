@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstSlide from "./components/feature/FirstSlide";
 import ResultSlide from "./components/feature/ResultSlide";
@@ -7,8 +6,6 @@ import ExampleSlide from "./components/feature/ExampleSlide";
 import LastSlide from "./components/feature/LastSlide";
 import Sidebar from "./components/layout/Sidebar";
 import Content from "./components/layout/Content";
-
-import "./assets/css/icofont.min.css";
 
 function App() {
   return (
