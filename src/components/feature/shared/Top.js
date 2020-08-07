@@ -47,9 +47,7 @@ const CenterText = styled.div`
 
 const Top = props => (
   <TopRow textColor={props.textColor}>
-    <span style={{ width: props.centerText ? "150px" : "auto" }}>
-      CSS Magic
-    </span>
+    <span style={{ width: props.centerText ? "150px" : "auto" }}>UI Cards</span>
     {props.centerText && (
       <CenterText textColor={props.textColor}>{props.centerText}</CenterText>
     )}
@@ -67,7 +65,7 @@ const Top = props => (
       )}
       {props.isLastSlide && (
         <PostNotifications>
-          Post Notifications
+          Notifications
           <i className="material-icons-outlined">arrow_upward</i>
         </PostNotifications>
       )}

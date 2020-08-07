@@ -1,0 +1,92 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 0.25rem;
+  background: white;
+  padding: 1.75rem 1.25rem;
+  box-shadow: 0 4px 15px rgba(black, 0.05);
+
+  &.dropped .icon {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+
+  &.dropped .progress-bar {
+    opacity: 1;
+  }
+
+  &.dropped .progress-bar::after {
+    animation: progress 3s;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px !important;
+  height: 70px;
+  color: rgba(#522cad, 0.55);
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+}
+
+.loading-area {
+  position: relative;
+  width: 100%;
+  height: 160px;
+}
+
+@keyframes progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  20% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.progress-bar {
+  overflow: hidden;
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 10px;
+  border-radius: 5px;
+  background: #ebebeb;
+  opacity: 0;
+  transition: opacity 0.25s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(#522cad, 0.75);
+  }
+}
+
+.dropzone {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border: 4px dashed rgba(#522cad, 0.25);
+  border-radius: 1rem;
+  outline: none;
+  color: rgba(#522cad, 0.35);
+}

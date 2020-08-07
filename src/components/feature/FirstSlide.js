@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/AnimateHelicopter.js";
+import FocalCard from "../cards/FileUploadCard.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -37,7 +37,7 @@ const StyledHowToText = styled.div`
   line-height: 50px;
   margin-bottom: 14px;
   letter-spacing: -2px;
-  color: ${rgba("#fff", 0.57)};
+  color: ${rgba("#10132F", 0.57)};
 `;
 
 const StyledTitleText = styled.div`
@@ -46,14 +46,14 @@ const StyledTitleText = styled.div`
   letter-spacing: -2px;
   line-height: 92px;
   margin-bottom: 35px;
-  color: ${rgba("#fff", 0.85)};
+  color: ${rgba("#10132F", 0.85)};
 `;
 
 const StyledSubtitleText = styled.div`
   ${"" /* font-size: 38px; */}
   font-size: 50px;
   letter-spacing: -2px;
-  color: ${rgba("#fff", 0.5)};
+  color: ${rgba("#522cad", 0.75)};
   ${"" /* color: #7a68a6; */}
   display: flex;
   align-items: center;
@@ -69,17 +69,17 @@ const StyledBannerText = styled.div`
   font-family: "DM Sans";
   font-weight: 600;
   ${"" /* color: #f1f1fa; */};
-  color: ${rgba("white", 0.025)};
+  color: ${rgba("#10132F", 0.025)};
   white-space: nowrap;
 `;
 
 const StyledCardFrame = styled.div`
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
-  ${"" /* width: 325px; */}
-  ${"" /* transform: rotate(-2deg); */}
+  bottom: 110px;
+  right: 0;
+  width: 325px;
+  transform: rotate(-2deg);
 `;
 
 const StyledWaves = styled.div`
@@ -116,16 +116,17 @@ const StyledIconWrapper = styled.span`
 const FirstSlide = props => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="linear-gradient(0deg, #a284ef 0%, #411aa7 100%)">
-      {false && <StyledWaves />}
-      <Top textColor="white" />
+    <Frame background="#FAF9FE">
+      {true && <StyledWaves />}
+      <Top textColor="#10132F" />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText>Helicopters</StyledBannerText>
+        <StyledBannerText>File Upload</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText>How To</StyledHowToText>
           <StyledTitleText>
-            Animate <br />
-            Helicopters
+            Create <br />
+            File Upload <br />
+            Cards
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>
@@ -140,7 +141,7 @@ const FirstSlide = props => (
           <FocalCard />
         </StyledCardFrame>
       </Middle>
-      <Bottom isDark textColor="white" />
+      <Bottom textColor="#10132F" />
     </Frame>
   </FrameWrapper>
 );

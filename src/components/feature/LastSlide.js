@@ -9,7 +9,44 @@ import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/AnimateHelicopter.js";
+import FocalCard from "../cards/FileUploadCard.js";
+
+const LastSlide = props => (
+  <FrameWrapper>
+    {false && <ImagePrev image={resultSlide} />}
+    <Frame background="#FAF9FE">
+      {true && <StyledWaves />}
+      <Top isLastSlide textColor="#10132F" />
+      <Middle verticalAlign="flex-start">
+        <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
+          <StyledHowToText>Was It Useful?</StyledHowToText>
+          <StyledTitleText>Let me know in the comments</StyledTitleText>
+
+          <StyledRow>
+            {/* <StyledCenter>
+              <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
+              <StyledNextTimeText>
+                Animate <br /> Helicopters <br />
+              </StyledNextTimeText>
+              <StyledNextTimeLibary>In React</StyledNextTimeLibary>
+            </StyledCenter> */}
+            <StyledLeft style={{ transform: "translateY(-10px)" }}>
+              <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
+              <StyledNextTimeText>
+                Create <br /> File Upload <br /> Cards
+              </StyledNextTimeText>
+              <StyledNextTimeLibary>In React</StyledNextTimeLibary>
+            </StyledLeft>
+            <StyledRight>
+              <FocalCard />
+            </StyledRight>
+          </StyledRow>
+        </div>
+      </Middle>
+      <Bottom textColor="#10132F" />
+    </Frame>
+  </FrameWrapper>
+);
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -54,7 +91,7 @@ const StyledHowToText = styled.div`
   margin-bottom: 0px;
   letter-spacing: -1px;
   text-align: center;
-  color: ${rgba("#fff", 0.85)};
+  color: ${rgba("#10132F", 0.85)};
 `;
 
 const StyledTitleText = styled.div`
@@ -63,23 +100,22 @@ const StyledTitleText = styled.div`
   letter-spacing: -0.5px;
   margin-bottom: 40px;
   text-align: center;
-  color: ${rgba("#fff", 0.57)};
+  color: ${rgba("#10132F", 0.57)};
 `;
 
 const StyledNextTimeTitle = styled.div`
   font-weight: 700;
   font-size: 28px;
   letter-spacing: -0.5px;
-  color: ${rgba("#fff", 0.57)};
+  color: ${rgba("#10132F", 0.57)};
 `;
 
 const StyledNextTimeText = styled.div`
   font-weight: 700;
-  text-align: center;
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -1px;
-  color: ${rgba("#fff", 0.85)};
+  color: ${rgba("#10132F", 0.85)};
   margin-bottom: 6px;
 `;
 
@@ -88,7 +124,7 @@ const StyledNextTimeLibary = styled.div`
 
   font-size: 28px;
   letter-spacing: -0.5px;
-  color: ${rgba("white", 0.38)};
+  color: ${rgba("#522cad", 0.75)};
   ${"" /* color: ${rgba("#522cad", 0.75)}; */}
   ${"" /* color: #7a68a6; */}
 `;
@@ -105,44 +141,5 @@ const StyledWaves = styled.div`
   background-position: right bottom;
   background-repeat: no-repeat;
 `;
-
-const LastSlide = props => (
-  <FrameWrapper>
-    {false && <ImagePrev image={resultSlide} />}
-    <Frame background="linear-gradient(0deg, #a284ef 0%, #642df1 100%)">
-      <FocalCard />
-
-      {false && <StyledWaves />}
-      <Top isLastSlide textColor="white" />
-      <Middle verticalAlign="flex-start">
-        <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
-          <StyledHowToText>Was It Useful?</StyledHowToText>
-          <StyledTitleText>Let me know in the comments</StyledTitleText>
-
-          <StyledRow>
-            <StyledCenter>
-              <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
-              <StyledNextTimeText>
-                Animate <br /> Helicopters <br />
-              </StyledNextTimeText>
-              <StyledNextTimeLibary>In React</StyledNextTimeLibary>
-            </StyledCenter>
-            {/* <StyledLeft style={{ transform: "translateY(-10px)" }}>
-              <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
-              <StyledNextTimeText>
-                Animate <br /> Helicopters <br />
-              </StyledNextTimeText>
-              <StyledNextTimeLibary>In React</StyledNextTimeLibary>
-            </StyledLeft>
-            <StyledRight>
-              <FocalCard />
-            </StyledRight> */}
-          </StyledRow>
-        </div>
-      </Middle>
-      <Bottom isDark textColor="white" />
-    </Frame>
-  </FrameWrapper>
-);
 
 export default LastSlide;
