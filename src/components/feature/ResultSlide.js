@@ -11,7 +11,7 @@ import Top from "./shared/Top";
 import lastCodeSlide from "../../assets/images/slide-8.png";
 import slideLast from "../../assets/images/slide-last.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/FileUploadCard.js";
+import FocalCard from "../cards/PieChartCard.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -44,13 +44,13 @@ const StyledCardFrame = styled.div`
   width: auto;
 `;
 
-const LastSlide = props => (
+const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={lastCodeSlide} />}
     {false && <ImageNext image={require("../../assets/images/slide-10.png")} />}
-    <Frame background="#FAF9FE">
-      {true && <StyledWaves />}
-      <Top textColor="#10132F" centerText="Result" />
+    <Frame background="#100f10">
+      {false && <StyledWaves />}
+      <Top textColor="white" isDark centerText="Result" />
       <Middle verticalAlign="center">
         <StyledCardFrame>
           <FocalCard
@@ -60,7 +60,7 @@ const LastSlide = props => (
           />
         </StyledCardFrame>
       </Middle>
-      <Bottom textColor="#10132F" />
+      <Bottom textColor="#fff" isDark />
     </Frame>
   </FrameWrapper>
 );

@@ -8,15 +8,13 @@ import ImagePrev from "./shared/ImagePrev";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
-import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/FileUploadCard.js";
+import FocalCard from "../cards/PieChartCard.js";
 
-const LastSlide = props => (
+const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={resultSlide} />}
-    <Frame background="#FAF9FE">
-      {true && <StyledWaves />}
-      <Top isLastSlide textColor="#10132F" />
+    <Frame background="#100f10">
+      <Top isLastSlide textColor="#fff" />
       <Middle verticalAlign="flex-start">
         <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
           <StyledHowToText>Was It Useful?</StyledHowToText>
@@ -33,7 +31,7 @@ const LastSlide = props => (
             <StyledLeft style={{ transform: "translateY(-10px)" }}>
               <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText>
-                Create <br /> File Upload <br /> Cards
+                Create <br /> Donut <br /> Charts
               </StyledNextTimeText>
               <StyledNextTimeLibary>In React</StyledNextTimeLibary>
             </StyledLeft>
@@ -43,7 +41,7 @@ const LastSlide = props => (
           </StyledRow>
         </div>
       </Middle>
-      <Bottom textColor="#10132F" />
+      <Bottom textColor="#10132F" isDark />
     </Frame>
   </FrameWrapper>
 );
@@ -87,59 +85,43 @@ const StyledCenter = styled.div`
 
 const StyledHowToText = styled.div`
   font-size: 50px;
-  font-weight: 600;
   margin-bottom: 0px;
   letter-spacing: -1px;
   text-align: center;
-  color: ${rgba("#10132F", 0.85)};
+  color: ${rgba("#fff", 0.85)};
+  ${"" /* color: ${rgba("#10132F", 0.85)}; */}
 `;
 
 const StyledTitleText = styled.div`
   font-size: 25px;
-  font-weight: 600;
   letter-spacing: -0.5px;
   margin-bottom: 40px;
   text-align: center;
-  color: ${rgba("#10132F", 0.57)};
+  color: ${rgba("#fff", 0.57)};
+  ${"" /* color: ${rgba("#10132F", 0.57)}; */}
 `;
 
 const StyledNextTimeTitle = styled.div`
-  font-weight: 700;
   font-size: 28px;
   letter-spacing: -0.5px;
-  color: ${rgba("#10132F", 0.57)};
+  color: ${rgba("#fff", 0.57)};
+  ${"" /* color: ${rgba("#10132F", 0.57)}; */}
 `;
 
 const StyledNextTimeText = styled.div`
-  font-weight: 700;
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -1px;
-  color: ${rgba("#10132F", 0.85)};
+  ${"" /* color: ${rgba("#10132F", 0.85)}; */}
+  color: ${rgba("#fff", 0.85)};
   margin-bottom: 6px;
 `;
 
 const StyledNextTimeLibary = styled.div`
-  font-weight: 700;
-
   font-size: 28px;
   letter-spacing: -0.5px;
-  color: ${rgba("#522cad", 0.75)};
   ${"" /* color: ${rgba("#522cad", 0.75)}; */}
-  ${"" /* color: #7a68a6; */}
-`;
-
-const StyledWaves = styled.div`
-  position: absolute;
-  z-index: 0;
-  bottom: 2px;
-  left: 0;
-  width: 100%;
-  height: 500px;
-  background: url(${require("../../assets/images/first-slide-wave.png")});
-  background-size: 200%;
-  background-position: right bottom;
-  background-repeat: no-repeat;
+  color: #7a68a6;
 `;
 
 export default LastSlide;

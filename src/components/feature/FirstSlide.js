@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/FileUploadCard.js";
+import FocalCard from "../cards/PieChartCard.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -27,34 +27,35 @@ const StyledMiddleContent = styled.div`
   z-index: 1;
   width: 100%;
   padding: 19px 28px 0;
-  font-family: "DM Sans";
   font-weight: 600;
 `;
 
 const StyledHowToText = styled.div`
   font-size: 50px;
-  font-weight: 600;
+  font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
   line-height: 50px;
   margin-bottom: 14px;
   letter-spacing: -2px;
-  color: ${rgba("#10132F", 0.57)};
+  color: ${({ isDark }) =>
+    isDark ? rgba("#fff", 0.65) : rgba("#10132F", 0.57)};
 `;
 
 const StyledTitleText = styled.div`
   font-size: 5.25rem;
-  font-weight: 600;
+  font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
   letter-spacing: -2px;
   line-height: 92px;
   margin-bottom: 35px;
-  color: ${rgba("#10132F", 0.85)};
+  color: ${({ isDark }) =>
+    isDark ? rgba("#FFF", 0.95) : rgba("#10132F", 0.85)};
 `;
 
 const StyledSubtitleText = styled.div`
   ${"" /* font-size: 38px; */}
   font-size: 50px;
   letter-spacing: -2px;
-  color: ${rgba("#522cad", 0.75)};
-  ${"" /* color: #7a68a6; */}
+  font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
+  color: ${({ isDark }) => (isDark ? "#7a68a6" : rgba("#522cad", 0.75))};
   display: flex;
   align-items: center;
 `;
@@ -66,17 +67,17 @@ const StyledBannerText = styled.div`
   left: -25px;
   letter-spacing: -10px;
   font-size: 180px;
-  font-family: "DM Sans";
   font-weight: 600;
   ${"" /* color: #f1f1fa; */};
-  color: ${rgba("#10132F", 0.025)};
+  color: ${({ isDark }) =>
+    isDark ? rgba("#fff", 0.025) : rgba("#10132F", 0.025)};
   white-space: nowrap;
 `;
 
 const StyledCardFrame = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 110px;
+  bottom: 96px;
   right: 0;
   width: 325px;
   transform: rotate(-2deg);
@@ -113,24 +114,24 @@ const StyledIconWrapper = styled.span`
   );
 `;
 
-const FirstSlide = props => (
+const FirstSlide = (props) => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="#FAF9FE">
-      {true && <StyledWaves />}
-      <Top textColor="#10132F" />
+    <Frame background="#100f10">
+      {false && <StyledWaves />}
+      <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText>File Upload</StyledBannerText>
+        <StyledBannerText isDark>File Upload</StyledBannerText>
         <StyledMiddleContent>
-          <StyledHowToText>How To</StyledHowToText>
-          <StyledTitleText>
+          <StyledHowToText isDark>How To</StyledHowToText>
+          <StyledTitleText isDark>
             Create <br />
-            File Upload <br />
+            Donut Chart <br />
             Cards
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>
-          <StyledSubtitleText>
+          <StyledSubtitleText isDark>
             <StyledIconWrapper>
               <FontAwesomeIcon icon={faReact} />
             </StyledIconWrapper>
@@ -141,7 +142,7 @@ const FirstSlide = props => (
           <FocalCard />
         </StyledCardFrame>
       </Middle>
-      <Bottom textColor="#10132F" />
+      <Bottom textColor="#10132F" isDark />
     </Frame>
   </FrameWrapper>
 );

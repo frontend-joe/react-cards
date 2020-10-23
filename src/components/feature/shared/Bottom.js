@@ -16,13 +16,14 @@ const BottomRow = styled.div`
 `;
 
 const FrontendJoe = styled.img`
-  height: 36px;
+  height: 48px;
 `;
 
 const SaveIcon = styled.i`
   position: relative;
   font-size: 38px;
-  color: ${props => (props.isDark ? "rgba(255, 255, 255, 0.75)" : "#522cad")};
+  color: ${(props) =>
+    props.isDark ? "rgba(255, 255, 255, 0.75)" : "rgb(82, 44, 173, 0.65)"};
 
   &::before {
     content: "";
@@ -32,12 +33,11 @@ const SaveIcon = styled.i`
     width: 90%;
     height: 90%;
     border-radius: 50%;
-    background: ${props =>
-      props.isDark ? "transparent" : "rgba(82, 44, 173, 0.1)"};
+    background: ${(props) => (props.isDark ? "transparent" : "transparent")};
   }
 `;
 
-const Bottom = props => (
+const Bottom = (props) => (
   <BottomRow>
     <FrontendJoe src={props.isDark ? frontendjoeGreyImage : frontendjoeImage} />
     <SaveIcon isDark={props.isDark} className="material-icons-outlined">
