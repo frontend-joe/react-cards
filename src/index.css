@@ -11,14 +11,16 @@ body,
 body {
   margin: 0;
   padding: 0;
-  font-family: "DM Sans";
+  font-family: "Euclid Circular A";
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 input,
 button {
-  font-family: "DM Sans";
+  font-family: "Euclid Circular A";
+  font-weight: 500;
   font-size: 1rem;
   outline: none;
   cursor: pointer;

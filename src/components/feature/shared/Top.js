@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { rgba } from "polished";
 import arrow from "../../../assets/images/arrow.png";
+import arrowForDark from "../../../assets/images/arrow-fordark.png";
 
 const TopRow = styled.div`
   position: relative;
@@ -12,15 +13,12 @@ const TopRow = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
-  font-family: DM Sans;
-  font-size: 24px;
-  font-weight: 800;
-  color: ${props => rgba(props.textColor || "#10132F", 0.38)};
+  font-size: 27px;
+  color: ${(props) => rgba(props.textColor || "#10132F", 0.38)};
 `;
 
-const Arrow = styled.span`
-  font-size: 30px;
-  color: ${props => rgba(props.textColor || "#10132F", 0.38)};
+const Arrow = styled.img`
+  width: 26px;
 `;
 
 const postAnimation = keyframes`
@@ -42,28 +40,22 @@ const PostNotifications = styled.div`
 `;
 
 const CenterText = styled.div`
-  color: ${props => rgba(props.textColor || "#10132F", 0.75)};
+  color: ${(props) => rgba(props.textColor || "#10132F", 0.75)};
 `;
 
-const Top = props => (
-  <TopRow textColor={props.textColor}>
-    <span style={{ width: props.centerText ? "150px" : "auto" }}>UI Cards</span>
-    {props.centerText && (
-      <CenterText textColor={props.textColor}>{props.centerText}</CenterText>
-    )}
+const Top = ({ isDark, textColor, centerText, isLastSlide }) => (
+  <TopRow textColor={textColor}>
+    <span style={{ width: centerText ? "150px" : "auto" }}>UI Cards</span>
+    {centerText && <CenterText textColor={textColor}>{centerText}</CenterText>}
     <div
       style={{
         textAlign: "right",
         height: "24px",
-        width: props.centerText ? "150px" : "auto"
+        width: centerText ? "150px" : "auto",
       }}
     >
-      {!props.isLastSlide && (
-        <Arrow textColor={props.textColor} className="material-icons-outlined">
-          arrow_forward
-        </Arrow>
-      )}
-      {props.isLastSlide && (
+      {!isLastSlide && <Arrow src={isDark ? arrowForDark : arrow} />}
+      {isLastSlide && (
         <PostNotifications>
           Notifications
           <i className="material-icons-outlined">arrow_upward</i>

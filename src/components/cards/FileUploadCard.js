@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from "react";
 import Dropzone from "react-dropzone";
-import "./FileUploadCard.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileUpload, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import "./FileUploadCard.scss";
 
 const FileUploadCard = () => {
   const [isDropped, setIsDropped] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
 
-  const onDrop = useCallback(acceptedFiles => {
+  const onDrop = useCallback((acceptedFiles) => {
     setIsDropped(true);
     setTimeout(() => {
       setIsUploaded(true);
