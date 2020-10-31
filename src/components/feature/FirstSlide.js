@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/PieChartCard.js";
+import FocalCard from "../magic/BubblingProgressBar.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -75,12 +75,12 @@ const StyledBannerText = styled.div`
 `;
 
 const StyledCardFrame = styled.div`
-  position: absolute;
+  ${"" /* position: absolute;
   z-index: 2;
   bottom: 96px;
   right: 0;
   width: 325px;
-  transform: rotate(-2deg);
+  transform: rotate(-2deg); */}
 `;
 
 const StyledWaves = styled.div`
@@ -117,17 +117,16 @@ const StyledIconWrapper = styled.span`
 const FirstSlide = (props) => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="#100f10">
+    <Frame background="#1b0841">
       {false && <StyledWaves />}
       <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText isDark>File Upload</StyledBannerText>
+        <StyledBannerText isDark>Progress</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText isDark>How To</StyledHowToText>
           <StyledTitleText isDark>
-            Create <br />
-            Donut Chart <br />
-            Cards
+            Bubbling <br />
+            Progress Bar
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>

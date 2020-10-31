@@ -8,12 +8,12 @@ import ImagePrev from "./shared/ImagePrev";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
-import FocalCard from "../cards/PieChartCard.js";
+import FocalCard from "../magic/BubblingProgressBar.js";
 
 const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={resultSlide} />}
-    <Frame background="#100f10">
+    <Frame background="#1b0841">
       <Top isLastSlide textColor="#fff" />
       <Middle verticalAlign="flex-start">
         <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
@@ -21,14 +21,15 @@ const LastSlide = (props) => (
           <StyledTitleText>Let me know in the comments</StyledTitleText>
 
           <StyledRow>
-            {/* <StyledCenter>
+            <StyledCenter>
               <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText>
-                Animate <br /> Helicopters <br />
+                Create Bubbling <br /> Progress Bar <br />
               </StyledNextTimeText>
               <StyledNextTimeLibary>In React</StyledNextTimeLibary>
-            </StyledCenter> */}
-            <StyledLeft style={{ transform: "translateY(-10px)" }}>
+            </StyledCenter>
+            <FocalCard />
+            {/* <StyledLeft style={{ transform: "translateY(-10px)" }}>
               <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText>
                 Create <br /> Donut <br /> Charts
@@ -36,8 +37,8 @@ const LastSlide = (props) => (
               <StyledNextTimeLibary>In React</StyledNextTimeLibary>
             </StyledLeft>
             <StyledRight>
-              <FocalCard />
-            </StyledRight>
+
+            </StyledRight> */}
           </StyledRow>
         </div>
       </Middle>
@@ -81,6 +82,10 @@ const StyledCenter = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & div {
+    text-align: center;
+  }
 `;
 
 const StyledHowToText = styled.div`

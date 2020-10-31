@@ -51,9 +51,9 @@ const ChartLabelValue = styled.div`
 
 const data = [
   { name: "Lost", value: 672, fill: "#292929" },
-  { name: "Strong", value: 462, fill: "#753bde" },
-  { name: "Moderate", value: 127, fill: "#cb34d2" },
-  { name: "Low", value: 41, fill: "#75ebc7" },
+  { name: "Strong", value: 462, fill: "#b239dc" },
+  { name: "Moderate", value: 127, fill: "#028ffb" },
+  { name: "Low", value: 41, fill: "#68d4a2" },
 ];
 
 const PieChartCard = ({}) => {
