@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../magic/BubblingProgressBar.js";
+import FocalCard from "../cards/AccordionCard.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -55,7 +55,9 @@ const StyledSubtitleText = styled.div`
   font-size: 50px;
   letter-spacing: -2px;
   font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
-  color: ${({ isDark }) => (isDark ? "#7a68a6" : rgba("#522cad", 0.75))};
+  ${"" /* color: ${({ isDark }) =>
+isDark ? rgba("#fff", 0.38) : rgba("#522cad", 0.75)}; */};
+  color: #7e49ff;
   display: flex;
   align-items: center;
 `;
@@ -68,19 +70,18 @@ const StyledBannerText = styled.div`
   letter-spacing: -10px;
   font-size: 180px;
   font-weight: 600;
-  ${"" /* color: #f1f1fa; */};
   color: ${({ isDark }) =>
     isDark ? rgba("#fff", 0.025) : rgba("#10132F", 0.025)};
   white-space: nowrap;
 `;
 
 const StyledCardFrame = styled.div`
-  ${"" /* position: absolute;
+  position: absolute;
   z-index: 2;
-  bottom: 96px;
+  bottom: 118px;
   right: 0;
   width: 325px;
-  transform: rotate(-2deg); */}
+  transform: rotate(-2deg);
 `;
 
 const StyledWaves = styled.div`
@@ -117,16 +118,17 @@ const StyledIconWrapper = styled.span`
 const FirstSlide = (props) => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="#1b0841">
+    <Frame background="#100f10">
       {false && <StyledWaves />}
       <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText isDark>Progress</StyledBannerText>
+        <StyledBannerText isDark>Accordion</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText isDark>How To</StyledHowToText>
           <StyledTitleText isDark>
-            Bubbling <br />
-            Progress Bar
+            Create <br />
+            Accordion <br />
+            Cards
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>

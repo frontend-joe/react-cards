@@ -29,11 +29,11 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-let bubbles = [];
+const bubbles = [];
 let counter = 0;
 
 for (let i = 0; i < 15; i++) {
-  let size = `${getRandomInt(20, 40)}px`;
+  const size = `${getRandomInt(20, 40)}px`;
   bubbles.push({
     opacity: `0.${getRandomInt(20, 50)}`,
     bottom: `-${getRandomInt(20, 60)}px`,
@@ -71,22 +71,13 @@ const ProgressBlocker = styled.div`
 `;
 
 const bubbleMove = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100px);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100px); }
 `;
 
 const bubbleScale = keyframes`
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(0); }
 `;
 
 const BubbleWrapper = styled.div`
@@ -102,24 +93,18 @@ const Bubble = styled.div`
 `;
 
 const textIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  90% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  90% { opacity: 0; }
+  100% { opacity: 1; }
 `;
 
 const Text = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   font-weight: 500;
   color: ${rgba("white", 0.75)};
+  transform: translate(-50%, -50%);
   animation: ${textIn} 5.5s;
 `;
 

@@ -14,7 +14,7 @@ const TopRow = styled.div`
   justify-content: space-between;
   padding: 0 28px;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: ${(props) => (props.isDark ? 500 : 600)};
   color: ${(props) => rgba(props.textColor || "#10132F", 0.38)};
 `;
 
@@ -45,8 +45,8 @@ const CenterText = styled.div`
 `;
 
 const Top = ({ isDark, textColor, centerText, isLastSlide }) => (
-  <TopRow textColor={textColor}>
-    <span style={{ width: centerText ? "150px" : "auto" }}>UI Magic</span>
+  <TopRow textColor={textColor} isDark={isDark}>
+    <span style={{ width: centerText ? "150px" : "auto" }}>UI Cards</span>
     {centerText && <CenterText textColor={textColor}>{centerText}</CenterText>}
     <div
       style={{

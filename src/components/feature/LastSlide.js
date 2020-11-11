@@ -8,41 +8,41 @@ import ImagePrev from "./shared/ImagePrev";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
-import FocalCard from "../magic/BubblingProgressBar.js";
+import FocalCard from "../cards/AccordionCard.js";
 
 const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={resultSlide} />}
-    <Frame background="#1b0841">
-      <Top isLastSlide textColor="#fff" />
+    <Frame background="#100f10">
+      <Top isLastSlide textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
         <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
-          <StyledHowToText>Was It Useful?</StyledHowToText>
-          <StyledTitleText>Let me know in the comments</StyledTitleText>
+          <StyledHowToText isDark>Was It Useful?</StyledHowToText>
+          <StyledTitleText isDark>Let me know in the comments</StyledTitleText>
 
           <StyledRow>
-            <StyledCenter>
+            {/* <StyledCenter>
               <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText>
                 Create Bubbling <br /> Progress Bar <br />
               </StyledNextTimeText>
               <StyledNextTimeLibary>In React</StyledNextTimeLibary>
-            </StyledCenter>
-            <FocalCard />
-            {/* <StyledLeft style={{ transform: "translateY(-10px)" }}>
-              <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
-              <StyledNextTimeText>
-                Create <br /> Donut <br /> Charts
+            </StyledCenter> */}
+
+            <StyledLeft style={{ transform: "translateY(-10px)" }}>
+              <StyledNextTimeTitle isDark>Next Time</StyledNextTimeTitle>
+              <StyledNextTimeText isDark>
+                Create <br /> Accordion <br /> Cards
               </StyledNextTimeText>
-              <StyledNextTimeLibary>In React</StyledNextTimeLibary>
+              <StyledNextTimeLibary isDark>In React</StyledNextTimeLibary>
             </StyledLeft>
             <StyledRight>
-
-            </StyledRight> */}
+              <FocalCard />
+            </StyledRight>
           </StyledRow>
         </div>
       </Middle>
-      <Bottom textColor="#10132F" isDark />
+      <Bottom />
     </Frame>
   </FrameWrapper>
 );
@@ -67,7 +67,6 @@ const StyledLeft = styled.div`
   z-index: 0;
   padding: 0 80px 0 60px;
   font-family: "DM Sans";
-  font-weight: 600;
 `;
 
 const StyledRight = styled.div`
@@ -93,8 +92,8 @@ const StyledHowToText = styled.div`
   margin-bottom: 0px;
   letter-spacing: -1px;
   text-align: center;
-  color: ${rgba("#fff", 0.85)};
-  ${"" /* color: ${rgba("#10132F", 0.85)}; */}
+  color: ${({ isDark }) =>
+    isDark ? rgba("#fff", 0.85) : rgba("#10132F", 0.85)};
 `;
 
 const StyledTitleText = styled.div`
@@ -102,23 +101,23 @@ const StyledTitleText = styled.div`
   letter-spacing: -0.5px;
   margin-bottom: 40px;
   text-align: center;
-  color: ${rgba("#fff", 0.57)};
-  ${"" /* color: ${rgba("#10132F", 0.57)}; */}
+  color: ${({ isDark }) =>
+    isDark ? rgba("#fff", 0.57) : rgba("#10132F", 0.57)};
 `;
 
 const StyledNextTimeTitle = styled.div`
   font-size: 28px;
   letter-spacing: -0.5px;
-  color: ${rgba("#fff", 0.57)};
-  ${"" /* color: ${rgba("#10132F", 0.57)}; */}
+  color: ${({ isDark }) =>
+    isDark ? rgba("#fff", 0.57) : rgba("#10132F", 0.57)};
 `;
 
 const StyledNextTimeText = styled.div`
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -1px;
-  ${"" /* color: ${rgba("#10132F", 0.85)}; */}
-  color: ${rgba("#fff", 0.85)};
+  color: ${({ isDark }) =>
+    isDark ? rgba("#fff", 0.85) : rgba("#10132F", 0.85)};
   margin-bottom: 6px;
 `;
 
@@ -126,7 +125,7 @@ const StyledNextTimeLibary = styled.div`
   font-size: 28px;
   letter-spacing: -0.5px;
   ${"" /* color: ${rgba("#522cad", 0.75)}; */}
-  color: #7a68a6;
+  color: #6b35ce;
 `;
 
 export default LastSlide;
