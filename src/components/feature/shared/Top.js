@@ -46,7 +46,7 @@ const CenterText = styled.div`
 
 const Top = ({ isDark, textColor, centerText, isLastSlide }) => (
   <TopRow textColor={textColor} isDark={isDark}>
-    <span style={{ width: centerText ? "150px" : "auto" }}>UI Cards</span>
+    <span style={{ width: centerText ? "150px" : "auto" }}>UI Magic</span>
     {centerText && <CenterText textColor={textColor}>{centerText}</CenterText>}
     <div
       style={{

@@ -57,7 +57,7 @@ const StyledSubtitleText = styled.div`
   font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
   ${"" /* color: ${({ isDark }) =>
 isDark ? rgba("#fff", 0.38) : rgba("#522cad", 0.75)}; */};
-  color: #7e49ff;
+  color: #8260d3;
   display: flex;
   align-items: center;
 `;
@@ -78,7 +78,7 @@ const StyledBannerText = styled.div`
 const StyledCardFrame = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 118px;
+  bottom: 99px;
   right: 0;
   width: 325px;
   transform: rotate(-2deg);
@@ -122,7 +122,7 @@ const FirstSlide = (props) => (
       {false && <StyledWaves />}
       <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText isDark>Accordion</StyledBannerText>
+        <StyledBannerText isDark>Accordions</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText isDark>How To</StyledHowToText>
           <StyledTitleText isDark>

@@ -8,12 +8,12 @@ import ImagePrev from "./shared/ImagePrev";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
-import FocalCard from "../cards/AccordionCard.js";
+import FocalCard from "../magic/StaggerAnimations";
 
 const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={resultSlide} />}
-    <Frame background="#100f10">
+    <Frame background="#702CDD">
       <Top isLastSlide textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
         <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
@@ -32,7 +32,7 @@ const LastSlide = (props) => (
             <StyledLeft style={{ transform: "translateY(-10px)" }}>
               <StyledNextTimeTitle isDark>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText isDark>
-                Create <br /> Accordion <br /> Cards
+                Create <br /> Staggered <br /> Animations
               </StyledNextTimeText>
               <StyledNextTimeLibary isDark>In React</StyledNextTimeLibary>
             </StyledLeft>
@@ -42,7 +42,7 @@ const LastSlide = (props) => (
           </StyledRow>
         </div>
       </Middle>
-      <Bottom />
+      <Bottom isDark />
     </Frame>
   </FrameWrapper>
 );
@@ -65,7 +65,7 @@ const StyledLeft = styled.div`
   flex: 1 0 auto;
   position: relative;
   z-index: 0;
-  padding: 0 80px 0 60px;
+  padding: 0 40px 0 60px;
   font-family: "DM Sans";
 `;
 
@@ -125,7 +125,7 @@ const StyledNextTimeLibary = styled.div`
   font-size: 28px;
   letter-spacing: -0.5px;
   ${"" /* color: ${rgba("#522cad", 0.75)}; */}
-  color: #6b35ce;
+  color: ${(p) => (p.isDark ? rgba("white", 0.38) : "#6b35ce")};
 `;
 
 export default LastSlide;
