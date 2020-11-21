@@ -11,7 +11,7 @@ import Top from "./shared/Top";
 import lastCodeSlide from "../../assets/images/slide-8.png";
 import slideLast from "../../assets/images/slide-last.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/AccordionExample";
+import FocalCard from "../magic/StaggerAnimations";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -48,11 +48,11 @@ const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={lastCodeSlide} />}
     {false && <ImageNext image={require("../../assets/images/slide-10.png")} />}
-    <Frame background="#100f10">
+    <Frame background="#591FAE">
       {false && <StyledWaves />}
       <Top textColor="white" isDark centerText="Example" />
       <Middle verticalAlign="center">
-        <StyledCardFrame style={{ transform: "scale(0.75)" }}>
+        <StyledCardFrame style={{ transform: "scale(1)" }}>
           <FocalCard
             cardTitle="Test"
             cardSubtitle="title"

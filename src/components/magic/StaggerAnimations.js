@@ -7,56 +7,62 @@ const pink = "#393540";
 const blue = "#43329c";
 const red = "#393540";
 
+const duration = "2.75s";
+
+const wrapperAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(600px);
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 300px;
+  animation: ${wrapperAnimation} ${duration} infinite linear;
 `;
 
-const jump = "8px";
+const gap = 20;
 
-const appear1 = keyframes`
-  0% { opacity: 0; transform: translateY(${jump}); }
-  40% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 1; }
-`;
-
-const appear2 = keyframes`
+const appearKeyframes = (i) => keyframes`
   0% { opacity: 0; }
-  20% { opacity: 0; transform: translateY(${jump}); }
-  60% { opacity: 1; transform: translateY(0); }
+  ${i === 0 ? 0 : (i * gap) / 2}% {
+    opacity: 0;
+  }
+  ${i === 0 ? gap : (i * gap) / 2 + gap}% {
+    opacity: 1;
+  }
   100% { opacity: 1; }
-`;
-
-const appear3 = keyframes`
-  0% { opacity: 0;  }
-  40% { opacity: 0; transform: translateY(${jump}); }
-  80% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 1; }
-`;
-
-const appear4 = keyframes`
-  0% { opacity: 0; }
-  60% { opacity: 0; transform: translateY(${jump}); }
-  100% { opacity: 1; transform: translateY(0); }
 `;
 
 const CardAnimation = styled.div`
-  animation: ${(p) => p.animation} 1.5s;
+  animation: ${(p) => appearKeyframes(p.index, gap)} ${duration} infinite linear;
 `;
 
 const StaggerAnimations = ({}) => (
   <Wrapper>
-    <CardAnimation animation={appear1}>
+    <CardAnimation index={0}>
       <LongShadowCard background={purple} icon="icofont-brand-bing" />
     </CardAnimation>
-    <CardAnimation animation={appear2}>
+    <CardAnimation index={1}>
       <LongShadowCard background={purple} icon="icofont-brand-apple" />
     </CardAnimation>
-    <CardAnimation animation={appear3}>
+    <CardAnimation index={2}>
       <LongShadowCard background={purple} icon="icofont-brand-vodafone" />
     </CardAnimation>
-    <CardAnimation animation={appear4}>
+    <CardAnimation index={3}>
       <LongShadowCard background={purple} icon="icofont-brand-airbnb" />
     </CardAnimation>
   </Wrapper>

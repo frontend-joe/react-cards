@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/AccordionCard.js";
+import FocalCard from "../magic/StaggerAnimations.js";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -55,9 +55,13 @@ const StyledSubtitleText = styled.div`
   font-size: 50px;
   letter-spacing: -2px;
   font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
-  ${"" /* color: ${({ isDark }) =>
-isDark ? rgba("#fff", 0.38) : rgba("#522cad", 0.75)}; */};
-  color: #8260d3;
+  ${
+    "" /* color: ${({ isDark }) =>
+isDark ? rgba("#fff", 0.38) : rgba("#522cad", 0.75)}; */
+  };
+${"" /* color: #8260d3; */}
+
+color: ${rgba("white", 0.38)};
   display: flex;
   align-items: center;
 `;
@@ -71,17 +75,17 @@ const StyledBannerText = styled.div`
   font-size: 180px;
   font-weight: 600;
   color: ${({ isDark }) =>
-    isDark ? rgba("#fff", 0.025) : rgba("#10132F", 0.025)};
+    isDark ? rgba("#fff", 0.05) : rgba("#10132F", 0.025)};
   white-space: nowrap;
 `;
 
 const StyledCardFrame = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 99px;
-  right: 0;
-  width: 325px;
-  transform: rotate(-2deg);
+  bottom: 104px;
+  right: 57px;
+  ${"" /* width: 325px; */}
+  ${"" /* transform: rotate(-2deg); */}
 `;
 
 const StyledWaves = styled.div`
@@ -118,17 +122,16 @@ const StyledIconWrapper = styled.span`
 const FirstSlide = (props) => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="#100f10">
+    <Frame background="#591FAE">
       {false && <StyledWaves />}
       <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText isDark>Accordions</StyledBannerText>
+        <StyledBannerText isDark>Animations</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText isDark>How To</StyledHowToText>
           <StyledTitleText isDark>
-            Create <br />
-            Accordion <br />
-            Cards
+            Stagger <br />
+            Animations
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>
