@@ -8,12 +8,12 @@ import ImagePrev from "./shared/ImagePrev";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
-import FocalCard from "../magic/StaggerAnimations";
+import FocalCard from "../cards/CountryPicker";
 
 const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={resultSlide} />}
-    <Frame background="#702CDD">
+    <Frame background="#100F10">
       <Top isLastSlide textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
         <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
@@ -22,17 +22,19 @@ const LastSlide = (props) => (
 
           <StyledRow>
             {/* <StyledCenter>
-              <StyledNextTimeTitle>Next Time</StyledNextTimeTitle>
-              <StyledNextTimeText>
-                Create Bubbling <br /> Progress Bar <br />
+              <StyledNextTimeTitle isDark>Next Time</StyledNextTimeTitle>
+              <StyledNextTimeText isDark>
+                Create 3D <br /> Shadow Text <br />
               </StyledNextTimeText>
-              <StyledNextTimeLibary>In React</StyledNextTimeLibary>
-            </StyledCenter> */}
+              <StyledNextTimeLibary isDark>In React</StyledNextTimeLibary>
+            </StyledCenter>
+
+            <FocalCard /> */}
 
             <StyledLeft style={{ transform: "translateY(-10px)" }}>
               <StyledNextTimeTitle isDark>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText isDark>
-                Create <br /> Staggered <br /> Animations
+                Create <br /> Country <br /> Pickers
               </StyledNextTimeText>
               <StyledNextTimeLibary isDark>In React</StyledNextTimeLibary>
             </StyledLeft>
@@ -65,13 +67,13 @@ const StyledLeft = styled.div`
   flex: 1 0 auto;
   position: relative;
   z-index: 0;
-  padding: 0 40px 0 60px;
+  padding: 0 80px 0 60px;
   font-family: "DM Sans";
 `;
 
 const StyledRight = styled.div`
   flex: 1 0 auto;
-  transform: rotate(-1deg) translateX(-40px);
+  transform: rotate(-2deg) translateX(-40px);
 `;
 
 const StyledCenter = styled.div`

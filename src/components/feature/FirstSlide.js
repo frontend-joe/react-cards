@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../magic/StaggerAnimations.js";
+import FocalCard from "../cards/LazyLoadCard";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -81,11 +81,11 @@ const StyledBannerText = styled.div`
 
 const StyledCardFrame = styled.div`
   position: absolute;
-  z-index: 2;
-  bottom: 104px;
-  right: 57px;
+  z-index: 5;
+  bottom: 123px;
+  right: 21px;
   ${"" /* width: 325px; */}
-  ${"" /* transform: rotate(-2deg); */}
+  transform: rotate(-2deg);
 `;
 
 const StyledWaves = styled.div`
@@ -126,12 +126,13 @@ const FirstSlide = (props) => (
       {false && <StyledWaves />}
       <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText isDark>Animations</StyledBannerText>
+        <StyledBannerText isDark>Lazy Load</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText isDark>How To</StyledHowToText>
           <StyledTitleText isDark>
-            Stagger <br />
-            Animations
+            Create <br />
+            Lazy Load <br />
+            Cards
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>
