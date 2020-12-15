@@ -8,12 +8,12 @@ import ImagePrev from "./shared/ImagePrev";
 import Middle from "./shared/Middle";
 import Top from "./shared/Top";
 import resultSlide from "../../assets/images/slide-result.png";
-import FocalCard from "../cards/CountryPicker";
+import FocalCard from "../cards/TabbedCard";
 
 const LastSlide = (props) => (
   <FrameWrapper>
     {false && <ImagePrev image={resultSlide} />}
-    <Frame background="#100F10">
+    <Frame background="#361270">
       <Top isLastSlide textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
         <div style={{ padding: "60px 24px 0", marginTop: "0", width: "100%" }}>
@@ -34,7 +34,7 @@ const LastSlide = (props) => (
             <StyledLeft style={{ transform: "translateY(-10px)" }}>
               <StyledNextTimeTitle isDark>Next Time</StyledNextTimeTitle>
               <StyledNextTimeText isDark>
-                Create <br /> Country <br /> Pickers
+                Create <br /> Tabbed <br /> Cards
               </StyledNextTimeText>
               <StyledNextTimeLibary isDark>In React</StyledNextTimeLibary>
             </StyledLeft>

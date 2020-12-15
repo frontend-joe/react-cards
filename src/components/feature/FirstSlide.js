@@ -12,7 +12,7 @@ import Top from "./shared/Top";
 import secondSlideImage from "../../assets/images/second-slide.png";
 import imageNext from "../../assets/images/slide-second.png";
 import waves from "../../assets/images/first-slide-wave.png";
-import FocalCard from "../cards/LazyLoadCard";
+import FocalCard from "../cards/CountryPicker";
 
 const StyledWrapper = styled.div`
   flex: 1;
@@ -51,17 +51,11 @@ const StyledTitleText = styled.div`
 `;
 
 const StyledSubtitleText = styled.div`
-  ${"" /* font-size: 38px; */}
   font-size: 50px;
   letter-spacing: -2px;
   font-weight: ${({ isDark }) => (isDark ? 500 : 600)};
-  ${
-    "" /* color: ${({ isDark }) =>
-isDark ? rgba("#fff", 0.38) : rgba("#522cad", 0.75)}; */
-  };
-${"" /* color: #8260d3; */}
-
-color: ${rgba("white", 0.38)};
+  color: #7245c7;
+  ${"" /* color: ${rgba("white", 0.38)}; */}
   display: flex;
   align-items: center;
 `;
@@ -82,7 +76,7 @@ const StyledBannerText = styled.div`
 const StyledCardFrame = styled.div`
   position: absolute;
   z-index: 5;
-  bottom: 123px;
+  bottom: 102px;
   right: 21px;
   ${"" /* width: 325px; */}
   transform: rotate(-2deg);
@@ -122,17 +116,17 @@ const StyledIconWrapper = styled.span`
 const FirstSlide = (props) => (
   <FrameWrapper>
     {false && <ImageNext image={imageNext} />}
-    <Frame background="#591FAE">
+    <Frame background="#100F10">
       {false && <StyledWaves />}
       <Top textColor="#fff" isDark />
       <Middle verticalAlign="flex-start">
-        <StyledBannerText isDark>Lazy Load</StyledBannerText>
+        <StyledBannerText isDark>Country</StyledBannerText>
         <StyledMiddleContent>
           <StyledHowToText isDark>How To</StyledHowToText>
           <StyledTitleText isDark>
             Create <br />
-            Lazy Load <br />
-            Cards
+            Country <br />
+            Picker
             {/* Theme a Mountain <br /> Card */}
             {/* Use Dark Theme on a Card */}
           </StyledTitleText>

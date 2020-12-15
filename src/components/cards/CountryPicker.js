@@ -4,8 +4,6 @@ import { rgba } from "polished";
 import json from "./countryPicker.json";
 
 const Card = styled.div`
-  position: relative;
-  overflow: hidden;
   width: 300px;
   height: 300px;
   padding: 2rem 1.5rem;
@@ -18,7 +16,6 @@ const Input = styled.input`
   width: 100%;
   margin-bottom: 1rem;
   border: 0;
-  border-bottom: 2px solid ${rgba("white", 0.25)};
   background: transparent;
   color: ${rgba("white", 0.85)};
 
@@ -40,7 +37,6 @@ const InputWrapper = styled.button`
   margin-bottom: 1rem;
   padding: 0;
   border: 0;
-  border-bottom: 2px solid ${rgba("white", 0.25)};
   color: ${rgba("white", 0.85)};
   background: transparent;
 `;
@@ -53,18 +49,26 @@ const InputIcon = styled.span`
   color: ${rgba("white", 0.5)};
 `;
 
+const Wrapper = styled.div`
+  position: relative;
+`;
+
 const Dialog = styled.div`
   position: absolute;
   overflow: auto;
-  bottom: 0;
+  z-index: 2;
+  top: 44px;
   left: 0;
-  padding: 2rem 1.5rem;
+  padding: 1.725rem 1.5rem;
   width: 100%;
-  height: 228px;
+  height: 278px;
   border-radius: 3rem;
-  transform: translateY(${(p) => (p.open ? 0 : "100%")});
+  visibility: ${(p) => (p.open ? "visible" : "hidden")};
+  opacity: ${(p) => (p.open ? 1 : 0)};
+  transform: translateY(${(p) => (p.open ? 0 : "1rem")});
   background: #fff;
-  transition: transform 0.35s;
+  transition-property: visibility, opacity, transform;
+  transition-duration: 0.35s;
 
   &::-webkit-scrollbar {
     display: none;
@@ -128,31 +132,34 @@ const CountryPicker = () => {
 
   return (
     <Card>
-      <InputWrapper onClick={() => setOpen(!open)}>
-        <InputPlaceholder>
-          {country === "" ? "Country" : country}
-        </InputPlaceholder>
-        <InputIcon className="material-icons">
-          {open ? "close" : "expand_more"}
-        </InputIcon>
-      </InputWrapper>
+      <Wrapper>
+        <InputWrapper onClick={() => setOpen(!open)}>
+          <InputPlaceholder>
+            {country === "" ? "Country" : country}
+          </InputPlaceholder>
+          <InputIcon className="material-icons">
+            {open ? "close" : "expand_more"}
+          </InputIcon>
+        </InputWrapper>
+        <Dialog open={open}>
+          {json.map((c) => (
+            <Row
+              onClick={() => {
+                setOpen(false);
+                setCountry(c.name);
+              }}
+            >
+              <Flag src={cdnPath(c.name)} />
+              <Country>{c.name}</Country>
+              <Code>{c.code}</Code>
+            </Row>
+          ))}
+        </Dialog>
+      </Wrapper>
+
       <Input placeholder="Name" />
       <Input placeholder="Email" />
       <Button>Save</Button>
-      <Dialog open={open}>
-        {json.map((c) => (
-          <Row
-            onClick={() => {
-              setOpen(false);
-              setCountry(c.name);
-            }}
-          >
-            <Flag src={cdnPath(c.name)} />
-            <Country>{c.name}</Country>
-            <Code>{c.code}</Code>
-          </Row>
-        ))}
-      </Dialog>
     </Card>
   );
 };
