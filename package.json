@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "apexcharts": "^3.19.3",
     "draft-js": "^0.11.7",
-    "highcharts": "^8.1.2",
+    "highcharts": "^9.0.0",
     "highcharts-more": "^0.1.7",
     "highcharts-react-official": "^3.0.0",
     "highcharts-solid-gauge": "^0.1.7",
